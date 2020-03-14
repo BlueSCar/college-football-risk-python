@@ -4,7 +4,7 @@ All URIs are relative to *https://collegefootballrisk.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_player_moves_by_turn**](TeamsApi.md#get_player_moves_by_turn) | **GET** /api/team/players | Get players moves by turn
+[**get_player_moves_by_turn**](TeamsApi.md#get_player_moves_by_turn) | **GET** /team/players | Get players moves by turn
 [**get_team_history**](TeamsApi.md#get_team_history) | **GET** /stats/team/history | Get historical team stats
 [**get_team_strength**](TeamsApi.md#get_team_strength) | **GET** /stats/team | Get current team strength
 [**get_teams**](TeamsApi.md#get_teams) | **GET** /teams | Get list of teams
