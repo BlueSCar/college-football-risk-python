@@ -5,6 +5,7 @@ All URIs are relative to *https://collegefootballrisk.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_player**](PlayersApi.md#get_player) | **GET** /player | Player information
+[**get_players**](PlayersApi.md#get_players) | **GET** /players | List of players
 
 
 # **get_player**
@@ -46,6 +47,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Player**](Player.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**500** | error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_players**
+> list[TeamPlayer] get_players(team=team)
+
+List of players
+
+List of players
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import college_football_risk
+from college_football_risk.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+with college_football_risk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = college_football_risk.PlayersApi(api_client)
+    team = 'team_example' # str | Team name filter (optional)
+
+    try:
+        # List of players
+        api_response = api_instance.get_players(team=team)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlayersApi->get_players: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team** | **str**| Team name filter | [optional] 
+
+### Return type
+
+[**list[TeamPlayer]**](TeamPlayer.md)
 
 ### Authorization
 
