@@ -26,47 +26,25 @@ Then import the package:
 import college_football_risk
 ```
 
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
-
-Then import the package:
-```python
-import college_football_risk
-```
-
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the [installation procedure](#installation--usage) and then run the following example code:
 
 ```python
-from __future__ import print_function
-import time
-import college_football_risk
-from college_football_risk.rest import ApiException
-from pprint import pprint
+import college_football_risk as risk
 
+# Get stats for a single player
+players_api = risk.PlayersApi()
+player_name = 'BlueSCar'
 
-# Defining host is optional and default to https://collegefootballrisk.com/api
-configuration.host = "https://collegefootballrisk.com/api"
-# Enter a context with an instance of the API client
-with college_football_risk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = college_football_risk.PlayersApi(api_client)
-    player = 'player_example' # str | Player username without the \"u/\" (e.g. \"u/BlueSCar\" would just be \"BlueSCar\")
+player = players_api.get_player(player_name)
+print(player)
 
-    try:
-        # Player information
-        api_response = api_instance.get_player(player)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling PlayersApi->get_player: %s\n" % e)
-    
+# Get a list of players by team
+players = players_api.get_players(team='Nebraska')
+
+for player in players:
+    print("Player: {0}, Turns Played: {1}".format(player.player, player.turns_played))
 ```
 
 ## Documentation for API Endpoints
