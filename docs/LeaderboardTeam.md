@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**rank** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **logo** | **str** |  | [optional] 
 **territory_count** | **int** |  | [optional] 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **season** | **int** |  | [optional] 
 **day** | **int** |  | [optional] 
 **team** | **str** |  | [optional] 
+**player** | **str** |  | [optional] 
 **stars** | **int** |  | [optional] 
 **mvp** | **bool** |  | [optional] 
 **territory** | **str** |  | [optional] 
