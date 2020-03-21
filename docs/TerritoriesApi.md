@@ -4,15 +4,15 @@ All URIs are relative to *https://collegefootballrisk.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_territories**](TerritoriesApi.md#get_territories) | **GET** /territories | Get list of territories
+[**get_territories**](TerritoriesApi.md#get_territories) | **GET** /territories | Get list of territories, including ownership status for the given turn
 [**get_territory_history**](TerritoriesApi.md#get_territory_history) | **GET** /territory/history | Get historical territory data
 [**get_territory_turn**](TerritoriesApi.md#get_territory_turn) | **GET** /territory/turn | Get teritory statistics for a specific turn
 
 
 # **get_territories**
-> list[Territory] get_territories()
+> list[Territory] get_territories(season=season, day=day)
 
-Get list of territories
+Get list of territories, including ownership status for the given turn
 
 Territories list
 
@@ -29,17 +29,23 @@ from pprint import pprint
 with college_football_risk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = college_football_risk.TerritoriesApi(api_client)
-    
+    season = 56 # int | Season filter (optional)
+day = 56 # int | Day filter (optional)
+
     try:
-        # Get list of territories
-        api_response = api_instance.get_territories()
+        # Get list of territories, including ownership status for the given turn
+        api_response = api_instance.get_territories(season=season, day=day)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TerritoriesApi->get_territories: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **season** | **int**| Season filter | [optional] 
+ **day** | **int**| Day filter | [optional] 
 
 ### Return type
 
