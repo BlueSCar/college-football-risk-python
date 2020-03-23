@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_territories**](TerritoriesApi.md#get_territories) | **GET** /territories | Get list of territories, including ownership status for the given turn
 [**get_territory_history**](TerritoriesApi.md#get_territory_history) | **GET** /territory/history | Get historical territory data
-[**get_territory_turn**](TerritoriesApi.md#get_territory_turn) | **GET** /territory/turn | Get teritory statistics for a specific turn
+[**get_territory_turn**](TerritoriesApi.md#get_territory_turn) | **GET** /territory/turn | Get territory statistics for a specific turn
 
 
 # **get_territories**
@@ -130,9 +130,9 @@ No authorization required
 # **get_territory_turn**
 > list[TerritoryTurn] get_territory_turn(territory, season, day)
 
-Get teritory statistics for a specific turn
+Get territory statistics for a specific turn
 
-Teritory statistics for a specific turn
+Territory statistics for a specific turn
 
 ### Example
 
@@ -152,7 +152,7 @@ season = 56 # int | Season
 day = 56 # int | Day
 
     try:
-        # Get teritory statistics for a specific turn
+        # Get territory statistics for a specific turn
         api_response = api_instance.get_territory_turn(territory, season, day)
         pprint(api_response)
     except ApiException as e:
