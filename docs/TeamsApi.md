@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_player_moves_by_turn**](TeamsApi.md#get_player_moves_by_turn) | **GET** /team/players | Get players moves by turn
 [**get_team_history**](TeamsApi.md#get_team_history) | **GET** /stats/team/history | Get historical team stats
+[**get_team_odds**](TeamsApi.md#get_team_odds) | **GET** /team/odds | Get team odds per territory
 [**get_team_strength**](TeamsApi.md#get_team_strength) | **GET** /stats/team | Get current team strength
 [**get_teams**](TeamsApi.md#get_teams) | **GET** /teams | Get list of teams
 
@@ -32,7 +33,7 @@ with college_football_risk.ApiClient() as api_client:
     api_instance = college_football_risk.TeamsApi(api_client)
     season = 56 # int | Season filter
 day = 56 # int | Day filter
-team = 56 # int | Team name filter (optional)
+team = 'team_example' # str | Team name filter (optional)
 
     try:
         # Get players moves by turn
@@ -48,7 +49,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | **int**| Season filter | 
  **day** | **int**| Day filter | 
- **team** | **int**| Team name filter | [optional] 
+ **team** | **str**| Team name filter | [optional] 
 
 ### Return type
 
@@ -110,6 +111,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[TeamHistory]**](TeamHistory.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**500** | error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_team_odds**
+> list[TeamOdds] get_team_odds(season, day, team)
+
+Get team odds per territory
+
+Get team odds per territory
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import college_football_risk
+from college_football_risk.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+with college_football_risk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = college_football_risk.TeamsApi(api_client)
+    season = 56 # int | Season filter
+day = 56 # int | Day filter
+team = 'team_example' # str | Team filter
+
+    try:
+        # Get team odds per territory
+        api_response = api_instance.get_team_odds(season, day, team)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->get_team_odds: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **season** | **int**| Season filter | 
+ **day** | **int**| Day filter | 
+ **team** | **str**| Team filter | 
+
+### Return type
+
+[**list[TeamOdds]**](TeamOdds.md)
 
 ### Authorization
 
